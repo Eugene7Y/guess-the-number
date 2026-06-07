@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+/* ===================== THEMES =====================
+   Each theme swaps the brand accent scale + the page background.
+   `brand-*` colors are CSS-var backed (see tailwind.config.ts), so changing
+   these variables restyles buttons, selected states and accents app-wide. */
+
+:root,
+[data-theme="dark"] {
+  --brand-50: 238 242 255;
+  --brand-100: 224 231 255;
+  --brand-400: 129 140 248;
+  --brand-500: 99 102 241;
+  --brand-600: 79 70 229;
+  --brand-700: 67 56 202;
+  --bg-base: #0b1020;
+  --bg-glow: 99 102 241;
+}
+
+[data-theme="minimal"] {
+  --brand-50: 248 250 252;
+  --brand-100: 241 245 249;
+  --brand-400: 148 163 184;
+  --brand-500: 100 116 139;
+  --brand-600: 71 85 105;
+  --brand-700: 51 65 85;
+  --bg-base: #0c0d11;
+  --bg-glow: 100 116 139;
+}
+
+[data-theme="cyberpunk"] {
+  --brand-50: 253 242 248;
+  --brand-100: 252 231 243;
+  --brand-400: 244 114 182;
+  --brand-500: 236 72 153;
+  --brand-600: 219 39 119;
+  --brand-700: 190 24 93;
+  --bg-base: #0a0512;
+  --bg-glow: 34 211 238;
+}
+
+[data-theme="matrix"] {
+  --brand-50: 240 253 244;
+  --brand-100: 220 252 231;
+  --brand-400: 74 222 128;
+  --brand-500: 34 197 94;
+  --brand-600: 22 163 74;
+  --brand-700: 21 128 61;
+  --bg-base: #000a03;
+  --bg-glow: 34 197 94;
+}
+
+[data-theme="space"] {
+  --brand-50: 245 243 255;
+  --brand-100: 237 233 254;
+  --brand-400: 167 139 250;
+  --brand-500: 139 92 246;
+  --brand-600: 124 58 237;
+  --brand-700: 109 40 217;
+  --bg-base: #070718;
+  --bg-glow: 139 92 246;
+}
+
+[data-theme="casino"] {
+  --brand-50: 255 251 235;
+  --brand-100: 254 243 199;
+  --brand-400: 251 191 36;
+  --brand-500: 245 158 11;
+  --brand-600: 217 119 6;
+  --brand-700: 180 83 9;
+  --bg-base: #05130b;
+  --bg-glow: 245 158 11;
+}
+
+[data-theme="military"] {
+  --brand-50: 247 247 237;
+  --brand-100: 236 238 214;
+  --brand-400: 190 180 120;
+  --brand-500: 161 145 79;
+  --brand-600: 133 117 56;
+  --brand-700: 100 86 36;
+  --bg-base: #0e120a;
+  --bg-glow: 132 140 80;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgb(var(--bg-glow) / 0.22), transparent),
+    var(--bg-base);
+  color: #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100svh;
+  transition: background-color 0.3s ease;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 28rem;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: calc(env(safe-area-inset-top) + 1rem) calc(env(safe-area-inset-right) + 1rem)
+    calc(env(safe-area-inset-bottom) + 1rem) calc(env(safe-area-inset-left) + 1rem);
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .app-shell {
+    max-width: 40rem;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  -webkit-user-select: none;
+  user-select: none;
+}
